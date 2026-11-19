@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SplitSmart - Split Bills Easily</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">Split<span>Smart.</span></div>
+        <p>Split bills. Not friendships.</p>
+    </header>
+
+    <main class="container">
+
+        <section class="welcome">
+            <h1>Let's split the bill!</h1>
+            <p>Keep things fair and simple. Everyone pays their share.</p>
+        </section>
+
+        <section class="card">
+            <h2>01. Your Bill</h2>
+            <p class="section-description">Start by giving your bill a name.</p>
+
+            <label for="billName">Restaurant or event name</label>
+            <input type="text" id="billName"
+                placeholder="e.g. Dinner at Sushi King">
+        </section>
+
+        <section class="card">
+            <h2>02. Participants</h2>
+            <p class="section-description">Who's joining the bill?</p>
+
+            <div class="input-group">
+                <input type="text" id="participantName"
+                    placeholder="Enter participant's name">
+                <button type="button" id="addParticipant">+ Add</button>
+            </div>
+
+            <div id="participantList" class="participant-list">
+                <p class="empty-message">No participants added yet.</p>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>03. Food & Drinks</h2>
+            <p class="section-description">
+                Add the items ordered and select who shared each item.
+            </p>
+
+            <div id="foodList">
+                <p class="empty-message">No food items added yet.</p>
+            </div>
+
+            <button type="button" class="secondary-button" id="addFood">
+                + Add Food Item
+            </button>
+        </section>
+
+        <section class="card" id="chargesSection">
+            <h2>04. Additional Charges</h2>
+            <p class="section-description">
+                Enter the charges shown on your restaurant receipt.
+            </p>
+
+            <label for="serviceCharge">Service Charge (RM)</label>
+            <input type="number" id="serviceCharge" min="0"
+                step="0.01" value="0">
+
+            <label for="sstCharge">SST (RM)</label>
+            <input type="number" id="sstCharge" min="0"
+                step="0.01" value="0">
+
+            <label for="tipCharge">Tip (RM)</label>
+            <input type="number" id="tipCharge" min="0"
+                step="0.01" value="0">
+
+            <label for="otherCharge">Other Charges (RM)</label>
+            <input type="number" id="otherCharge" min="0"
+                step="0.01" value="0">
+        </section>
+
+        <section class="calculate-section">
+            <button type="button" class="calculate-button"
+                id="calculateBillButton">
+                Calculate Bill →
+            </button>
+            <p>Review everyone's share before splitting the bill.</p>
+
+            <button type="button" class="reset-button" id="resetBillButton">
+                ↺ Reset Bill
+            </button>
+            <p class="autosave-note">Your bill is saved automatically on this device.</p>
+        </section>
+
+        <section class="card" id="summarySection" style="display: none;">
+            <h2>06. Payment Summary</h2>
+            <p class="section-description">
+                Here's the complete payment breakdown.
+            </p>
+
+            <div id="receiptTitle"></div>
+
+            <div id="summaryList"></div>
+
+            <div class="summary-total">
+                <span>Total Food Bill</span>
+                <strong id="foodTotal">RM 0.00</strong>
+            </div>
+
+            <div class="summary-total">
+                <span>Additional Charges</span>
+                <strong id="chargesTotal">RM 0.00</strong>
+            </div>
+
+            <div class="summary-total final-total">
+                <span>Grand Total</span>
+                <strong id="grandTotal">RM 0.00</strong>
+            </div>
+
+            <div class="receipt-actions">
+                <button type="button" id="whatsappButton">
+                    Send via WhatsApp
+                </button>
+
+                <button type="button" id="pdfButton">
+                    Generate PDF
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 SplitSmart. Made to make splitting bills easier.</p>
+    </footer>
+    <script src="js/calculations.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
